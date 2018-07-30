@@ -23,7 +23,7 @@ namespace Grades
         }
     }
 
-    class GradeBook
+    public class GradeBook
     {
         private List<float> grades;
 
@@ -49,7 +49,7 @@ namespace Grades
         }
     }
 
-    internal class GradeStatistics
+    public class GradeStatistics
     {
         public float AverageGrade;
         public float HighestGrade;
