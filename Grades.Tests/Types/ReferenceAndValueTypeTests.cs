@@ -47,5 +47,23 @@ namespace Grades.Tests.Types
         }
 
         private void IncrementInteger(ref int number) => number++;
+        
+        [Fact]
+        public void ImmutableDateTimeAndItsPureMethods()
+        {
+            DateTime dateTime = new DateTime(2017, 01, 24);
+            dateTime.AddMonths(6); // Pure method on a value type, new value isn't used unless explicitly assigned
+            
+            Assert.NotEqual(07, dateTime.Month);
+        }
+        
+        [Fact]
+        public void StringsAreImmutableReferenceTypes()
+        {
+            string name = "jura";
+            name = name.ToUpper(); // Only works because explicitly assigned
+            
+            Assert.Equal("JURA", name);
+        }
     }
 }
