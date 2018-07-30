@@ -35,5 +35,17 @@ namespace Grades.Tests.Types
             
             Assert.Equal(gradeBook1.Name, gradeBook2.Name);
         }
+        
+        [Fact]
+        public void VariableOfValueTypePassedByRef()
+        {
+            int number = 46;
+            IncrementInteger(ref number);
+            
+            Assert.Equal(47, number);
+            
+        }
+
+        private void IncrementInteger(ref int number) => number++;
     }
 }
