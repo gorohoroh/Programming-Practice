@@ -6,7 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C# Path", "C# Path", "{7787
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C# Fundamentals with Visual Studio 2015", "C# Fundamentals with Visual Studio 2015", "{0F5E8165-8931-4044-8BC5-1A5714C65127}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradeBook", "GradeBook\GradeBook.csproj", "{DFB91B21-61B1-4DCE-84D0-FF8D82BCF500}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grades", "Grades\Grades.csproj", "{DFB91B21-61B1-4DCE-84D0-FF8D82BCF500}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
