@@ -1,8 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pluralsight", "Pluralsight", "{A13FDAA1-CB7F-450E-A386-9C3EF16761A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C# Path", "C# Path", "{7787EBE9-7BBC-4304-8A7C-3ED642690E70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C# Fundamentals with Visual Studio 2015", "C# Fundamentals with Visual Studio 2015", "{0F5E8165-8931-4044-8BC5-1A5714C65127}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradeBook", "GradeBook\GradeBook.csproj", "{DFB91B21-61B1-4DCE-84D0-FF8D82BCF500}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7787EBE9-7BBC-4304-8A7C-3ED642690E70} = {A13FDAA1-CB7F-450E-A386-9C3EF16761A3}
+		{0F5E8165-8931-4044-8BC5-1A5714C65127} = {7787EBE9-7BBC-4304-8A7C-3ED642690E70}
+		{DFB91B21-61B1-4DCE-84D0-FF8D82BCF500} = {0F5E8165-8931-4044-8BC5-1A5714C65127}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFB91B21-61B1-4DCE-84D0-FF8D82BCF500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFB91B21-61B1-4DCE-84D0-FF8D82BCF500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFB91B21-61B1-4DCE-84D0-FF8D82BCF500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFB91B21-61B1-4DCE-84D0-FF8D82BCF500}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
