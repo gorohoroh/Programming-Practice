@@ -26,6 +26,7 @@ namespace Grades
     public class GradeBook
     {
         private List<float> grades;
+        public string Name;
 
         public GradeBook()
         {
