@@ -3,6 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pluralsight", "Pluralsight", "{A13FDAA1-CB7F-450E-A386-9C3EF16761A3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C# Path", "C# Path", "{7787EBE9-7BBC-4304-8A7C-3ED642690E70}"
+ProjectSection(SolutionItems) = preProject
+	to_practice.md = to_practice.md
+EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C# Fundamentals with Visual Studio 2015", "C# Fundamentals with Visual Studio 2015", "{0F5E8165-8931-4044-8BC5-1A5714C65127}"
 EndProject
