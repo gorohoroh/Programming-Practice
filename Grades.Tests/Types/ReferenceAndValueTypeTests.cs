@@ -23,7 +23,7 @@ namespace Grades.Tests.Types
             int integer2 = integer1;
             integer1 = 4;
             
-            Assert. NotEqual(integer1, integer2);
+            Assert.NotEqual(integer1, integer2);
         }
         
         [Fact]

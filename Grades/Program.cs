@@ -9,6 +9,7 @@ namespace Grades
         static void Main()
         {
             GradeBook book = new GradeBook();
+            book.Name = "My gradebook";
             book.AddGrade(75);
             book.AddGrade(99);
             book.AddGrade(79.5f);
@@ -16,6 +17,7 @@ namespace Grades
 
             var stats = book.ComputeStatistics();
 
+            Console.WriteLine(book.Name);
             Console.WriteLine("Average grade: " + stats.AverageGrade);
             Console.WriteLine("{0}: {1:F1}", "Lowest grade", stats.LowestGrade);
             Console.WriteLine($"Highest grade: {stats.HighestGrade:F1}");
@@ -26,7 +28,19 @@ namespace Grades
     public class GradeBook
     {
         private List<float> grades;
-        public string Name;
+        private string name;
+
+        public string Name
+        {
+            get { return name;}
+            
+            set {
+                if (!String.IsNullOrEmpty(value))
+                {
+                    name = value;
+                }
+            }
+        }
 
         public GradeBook()
         {
