@@ -8,7 +8,7 @@ namespace Grades
     {
         private List<float> grades;
         private string name;
-        public NameChangedDelegate NameChanged;
+        public event NameChangedDelegate NameChanged;
 
         public string Name
         {
@@ -19,7 +19,13 @@ namespace Grades
                 {
                     if (name != value)
                     {
-                        NameChanged(name, value);
+                        NameChangedEventArgs args = new NameChangedEventArgs
+                        {
+                            ExistingName = name, 
+                            NewName = value
+                        };
+
+                        NameChanged(this, args);
                     }
                     
                     name = value;
