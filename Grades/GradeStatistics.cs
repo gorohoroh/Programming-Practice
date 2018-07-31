@@ -2,6 +2,42 @@
 {
     public class GradeStatistics
     {
+        public string GradeDescription
+        {
+            get
+            {
+                string description;
+                switch (LetterGrade) {
+                    case "A":
+                    {
+                        description = "Excellent";
+                        break;
+                    }
+                    case "B":
+                    {
+                        description = "Good";
+                        break;
+                    }
+                    case "C":
+                    {
+                        description = "Average";
+                        break;
+                    }
+                    case "D":
+                    {
+                        description = "Below average";
+                        break;
+                    }
+                    default:
+                    {
+                        description = "Failing";
+                        break;
+                    }
+                }
+                return description;
+            }
+        }
+        
         public string LetterGrade
         {
             get

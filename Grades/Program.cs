@@ -22,6 +22,7 @@ namespace Grades
             Console.WriteLine("{0}: {1:F1}", "Lowest grade", stats.LowestGrade);
             Console.WriteLine($"Highest grade: {stats.HighestGrade:F1}");
             Console.WriteLine($"Letter grade: {stats.LetterGrade}");
+            Console.WriteLine($"Grade description: {stats.GradeDescription}");
 
         }
 
