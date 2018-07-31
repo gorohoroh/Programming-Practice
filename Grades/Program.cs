@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Grades
 {
@@ -8,12 +9,26 @@ namespace Grades
         {
             GradeBook book = new GradeBook();
             book.NameChanged += OnNameChanged;
-            book.Name = "My gradebook";
+            Console.WriteLine("Enter a gradebook name:");
+
+            try {
+                book.Name = Console.ReadLine();
+            }
+            catch (ArgumentException exception) {
+                Console.WriteLine(exception);
+            }
+            catch (Exception) {
+                Console.WriteLine("Something went wrong. Did it?");
+            }
+            
             book.AddGrade(75);
             book.AddGrade(99);
             book.AddGrade(79.5f);
             book.AddGrade(90.1f);
-            book.Name = "My updated gradebook";
+
+            using (StreamWriter outputFile = File.CreateText("grades.txt")) {
+                book.WriteGrades(outputFile);
+            }
 
             var stats = book.ComputeStatistics();
 

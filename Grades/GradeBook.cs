@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace Grades
@@ -15,21 +16,22 @@ namespace Grades
             get { return name;}
             
             set {
-                if (!String.IsNullOrEmpty(value))
-                {
-                    if (name != value)
-                    {
-                        NameChangedEventArgs args = new NameChangedEventArgs
-                        {
-                            ExistingName = name, 
-                            NewName = value
-                        };
-
-                        NameChanged(this, args);
-                    }
-                    
-                    name = value;
+                if (String.IsNullOrEmpty(value)) {
+                    throw new ArgumentException("Name should not be null or empty");
                 }
+
+                if (name != value && NameChanged != null)
+                {
+                    NameChangedEventArgs args = new NameChangedEventArgs
+                    {
+                        ExistingName = name, 
+                        NewName = value
+                    };
+
+                    NameChanged(this, args);
+                }
+                    
+                name = value;
             }
         }
 
@@ -53,6 +55,13 @@ namespace Grades
             statistics.LowestGrade = grades.Min();
             
             return statistics;
+        }
+
+        public void WriteGrades(TextWriter destination)
+        {
+            for (int i = grades.Count; i > 0; i--) {
+                destination.WriteLine(grades[i-1]);
+            }
         }
     }
 }
