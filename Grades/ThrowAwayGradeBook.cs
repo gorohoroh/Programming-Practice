@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 
-namespace Grades {
+namespace Grades
+{
     class ThrowAwayGradeBook : GradeBook
     {
         public override GradeStatistics ComputeStatistics()
@@ -8,6 +9,5 @@ namespace Grades {
             grades.Remove(grades.Min());
             return base.ComputeStatistics();
         }
-        
     }
 }

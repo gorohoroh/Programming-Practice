@@ -7,7 +7,7 @@ namespace Grades
     {
         static void Main()
         {
-            GradeBook book = new ThrowAwayGradeBook();
+            GradeTracker book = new ThrowAwayGradeBook();
             book.NameChanged += OnNameChanged;
             
             PromptForGradebookName(book);
@@ -19,7 +19,7 @@ namespace Grades
             WriteStatsToConsole(book, stats);
         }
 
-        private static void WriteStatsToConsole(GradeBook book, GradeStatistics stats)
+        private static void WriteStatsToConsole(GradeTracker book, GradeStatistics stats)
         {
             Console.WriteLine(book.Name);
             Console.WriteLine("Average grade: " + stats.AverageGrade);
@@ -29,14 +29,14 @@ namespace Grades
             Console.WriteLine($"Grade description: {stats.GradeDescription}");
         }
 
-        private static void SaveGradesToFile(GradeBook book)
+        private static void SaveGradesToFile(GradeTracker book)
         {
             using (StreamWriter outputFile = File.CreateText("grades.txt")) {
                 book.WriteGrades(outputFile);
             }
         }
 
-        private static void EnterGrades(GradeBook book)
+        private static void EnterGrades(GradeTracker book)
         {
             book.AddGrade(75);
             book.AddGrade(99);
@@ -44,7 +44,7 @@ namespace Grades
             book.AddGrade(90.1f);
         }
 
-        private static void PromptForGradebookName(GradeBook book)
+        private static void PromptForGradebookName(GradeTracker book)
         {
             Console.WriteLine("Enter a gradebook name:");
 

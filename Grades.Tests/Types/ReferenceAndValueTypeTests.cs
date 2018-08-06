@@ -29,8 +29,8 @@ namespace Grades.Tests.Types
         [Fact]
         public void TwoVariablesOfReferenceTypeHoldReferenceToTheSameObject()
         {
-            GradeBook gradeBook1 = new GradeBook();
-            GradeBook gradeBook2 = gradeBook1;
+            GradeTracker gradeBook1 = new GradeBook();
+            GradeTracker gradeBook2 = gradeBook1;
             gradeBook1.Name = "Gradebook one";
             
             Assert.Equal(gradeBook1.Name, gradeBook2.Name);

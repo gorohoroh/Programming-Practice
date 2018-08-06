@@ -8,7 +8,7 @@ namespace Grades.Tests
         [Fact]
         public void CalculatesAverageGrade()
         {
-            GradeBook book = new GradeBook();
+            GradeTracker book = new GradeBook();
             book.AddGrade(75);
             book.AddGrade(89);
 
@@ -19,7 +19,7 @@ namespace Grades.Tests
         [Fact]
         public void CalculatesLowestGrade()
         {
-            GradeBook book = new GradeBook();
+            GradeTracker book = new GradeBook();
             book.AddGrade(29);
             book.AddGrade(99);
             book.AddGrade(71);
@@ -31,7 +31,7 @@ namespace Grades.Tests
         [Fact]
         public void CalculatesHighestGrade()
         {
-            GradeBook book = new GradeBook();
+            GradeTracker book = new GradeBook();
             book.AddGrade(59);
             book.AddGrade(99.166f);
 
