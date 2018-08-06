@@ -7,7 +7,7 @@ namespace Grades
 {
     public class GradeBook
     {
-        private List<float> grades;
+        protected List<float> grades;
         private string name;
         public event NameChangedDelegate NameChanged;
 
@@ -46,7 +46,7 @@ namespace Grades
             grades.Add(grade);
         }
 
-        public GradeStatistics ComputeStatistics()
+        public virtual GradeStatistics ComputeStatistics()
         {
             GradeStatistics statistics = new GradeStatistics();
 

@@ -7,7 +7,7 @@ namespace Grades
     {
         static void Main()
         {
-            GradeBook book = new GradeBook();
+            GradeBook book = new ThrowAwayGradeBook();
             book.NameChanged += OnNameChanged;
             
             PromptForGradebookName(book);
