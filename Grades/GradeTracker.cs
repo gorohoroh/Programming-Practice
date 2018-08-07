@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 
 namespace Grades
 {
-    public abstract class GradeTracker
+    public abstract class GradeTracker : IGradeTracker
     {
         protected string name;
         public virtual event NameChangedDelegate NameChanged;
@@ -35,5 +36,6 @@ namespace Grades
         public abstract void AddGrade(float grade);
         public abstract GradeStatistics ComputeStatistics();
         public abstract void WriteGrades(TextWriter destination);
+        public abstract IEnumerator GetEnumerator();
     }
 }

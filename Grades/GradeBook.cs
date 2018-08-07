@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -37,6 +38,11 @@ namespace Grades
             for (int i = grades.Count; i > 0; i--) {
                 destination.WriteLine(grades[i-1]);
             }
+        }
+
+        public override IEnumerator GetEnumerator()
+        {
+            return grades.GetEnumerator();
         }
     }
 }

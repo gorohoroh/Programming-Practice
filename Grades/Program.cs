@@ -16,10 +16,15 @@ namespace Grades
 
             var stats = book.ComputeStatistics();
 
+            foreach (var grade in book) 
+            {
+                Console.WriteLine(grade);
+            }
+
             WriteStatsToConsole(book, stats);
         }
 
-        private static void WriteStatsToConsole(GradeTracker book, GradeStatistics stats)
+        private static void WriteStatsToConsole(IGradeTracker book, GradeStatistics stats)
         {
             Console.WriteLine(book.Name);
             Console.WriteLine("Average grade: " + stats.AverageGrade);
@@ -29,14 +34,14 @@ namespace Grades
             Console.WriteLine($"Grade description: {stats.GradeDescription}");
         }
 
-        private static void SaveGradesToFile(GradeTracker book)
+        private static void SaveGradesToFile(IGradeTracker book)
         {
             using (StreamWriter outputFile = File.CreateText("grades.txt")) {
                 book.WriteGrades(outputFile);
             }
         }
 
-        private static void EnterGrades(GradeTracker book)
+        private static void EnterGrades(IGradeTracker book)
         {
             book.AddGrade(75);
             book.AddGrade(99);
@@ -44,7 +49,7 @@ namespace Grades
             book.AddGrade(90.1f);
         }
 
-        private static void PromptForGradebookName(GradeTracker book)
+        private static void PromptForGradebookName(IGradeTracker book)
         {
             Console.WriteLine("Enter a gradebook name:");
 
