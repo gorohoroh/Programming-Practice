@@ -53,5 +53,14 @@ namespace EqualityComparisonTests
             // object.Equals() for tuples compares value equality.
             Assert.True(tuple.Equals(tuple2));
         }
+
+        [Fact]
+        public void ObjectEquals_ValueTypes_Struct_TwoInstancesSameFieldValue_ReturnsTrue()
+        {
+            FoodStruct foodStruct = new FoodStruct("banana");
+            FoodStruct foodStruct2 = new FoodStruct("banana");
+            
+            Assert.True(foodStruct.Equals(foodStruct2));
+        }
     }
 }

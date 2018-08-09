@@ -18,4 +18,18 @@ namespace FoodEquals
             return name;
         }
     }
+
+    public struct FoodStruct
+    {
+        private string name;
+        public string Name
+        {
+            get { return name; }
+        }
+
+        public FoodStruct(string name)
+        {
+            this.name = name;
+        }
+    }
 }
