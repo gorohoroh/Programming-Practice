@@ -48,6 +48,11 @@ namespace FoodEquals
             return false;
         }
 
+        public override int GetHashCode()
+        {
+            return name.GetHashCode() ^ group.GetHashCode();
+        }
+
         public override string ToString()
         {
             return name;
