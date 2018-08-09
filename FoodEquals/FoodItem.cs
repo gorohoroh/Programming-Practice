@@ -1,6 +1,8 @@
+using System;
+
 namespace FoodEquals
 {
-    public struct FoodItem
+    public struct FoodItem : IEquatable<FoodItem>
     {
         private readonly string name;
         private readonly FoodGroup group;
@@ -19,6 +21,11 @@ namespace FoodEquals
         {
             this.name = name;
             this.group = group;
+        }
+
+        public bool Equals(FoodItem other)
+        {
+            return name == other.name && group == other.group;
         }
 
         public override string ToString()
