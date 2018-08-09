@@ -14,7 +14,7 @@ namespace EqualityComparisonTests
             bool whatEqualsReturns = i1.Equals(i2);
             bool whatOperatorReturns = i1 == i2;
             
-            // For primitive value types, object.Equals() and == both check for value equality.
+            // For primitive value types (and enums), object.Equals() and == both check for value equality.
             Assert.True(whatEqualsReturns == whatOperatorReturns);
         }
 
