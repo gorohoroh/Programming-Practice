@@ -4,6 +4,15 @@ namespace FoodEquals
 {
     public struct FoodItem : IEquatable<FoodItem>
     {
+        public override bool Equals(object obj)
+        {
+            if (obj is FoodItem) {
+                return Equals((FoodItem)obj);
+            }
+
+            return false;
+        }
+
         private readonly string name;
         private readonly FoodGroup group;
 
