@@ -4,7 +4,7 @@ using Xunit;
 
 namespace EqualityComparisonTests
 {
-    public class Equality
+    public class ObjectEquals
     {
         [Fact]
         public void ObjectEquals_ObjectsOfSameReferenceTypeButDifferentFieldValues_ReturnsFalse()
@@ -70,42 +70,6 @@ namespace EqualityComparisonTests
             
             Assert.False(food.Equals(null));
         }
-
-        [Fact]
-        public void ObjectEqualsStatic_AvoidsNREs_ReturnsFalse()
-        {
-            Food food = new Food("banana");
-            
-            // The instance method object.Equals() would cause a NRE when invoked on a null reference; to avoid this, the static Object.Equals() is used that takes two parameters,
-            // either of which can be null. The static method provides null checking, and if neither parameter is null, it calls the instance method.
-            Assert.False(Equals(null, food));
-        }
-
-        [Fact]
-        public void ObjectEqualsStatic_TwoNullsAreAlwaysEqual_ReturnsTrue()
-        {
-            Assert.True(Equals(null, null));
-        }
-
-        [Fact]
-        public void ReferenceEquals_TwoStrings_InternedByFramework_ReturnsTrue()
-        {
-            string myString = "something";
-            string mySecondString = "something";
-            
-            // Even though it looks like the two variables should not be equal when compared by reference, they're auto-interned by .NET Core,
-            // and this means since they share the same value, they're made to use the same reference.
-            Assert.True(ReferenceEquals(myString, mySecondString));
-        }
-
-        [Fact]
-        public void ReferenceEquals_TwoStrings_WithoutInterning_ReturnsFalse()
-        {
-            string myString = "something";
-            string mySecondString = string.Copy(myString);
-            
-            // Calling string.Copy() makes sure that the two variables are two distinct references, albeit pointing to the same value. ReferenceEquals() thus returns false in this case.
-            Assert.False(ReferenceEquals(myString, mySecondString));
-        }
+        
     }
 }
