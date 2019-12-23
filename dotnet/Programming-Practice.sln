@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerRank.Tests", "HackerR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codility.Tests", "Codility.Tests\Codility.Tests.csproj", "{832925A0-B436-4B8D-A58D-0C171BC04258}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeetCode.Tests", "LeetCode.Tests\LeetCode.Tests.csproj", "{51AA5022-7FD2-4DB0-94B4-9B1A64615457}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,7 @@ Global
 		{067FBBDA-1A03-4379-A294-134355186C89} = {52BA8B7A-0812-4A6C-9453-ECB7B669F964}
 		{19BA2934-59D9-4B98-96C6-CABF10A685BF} = {067FBBDA-1A03-4379-A294-134355186C89}
 		{832925A0-B436-4B8D-A58D-0C171BC04258} = {067FBBDA-1A03-4379-A294-134355186C89}
+		{51AA5022-7FD2-4DB0-94B4-9B1A64615457} = {067FBBDA-1A03-4379-A294-134355186C89}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DFB91B21-61B1-4DCE-84D0-FF8D82BCF500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -69,5 +72,9 @@ Global
 		{832925A0-B436-4B8D-A58D-0C171BC04258}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{832925A0-B436-4B8D-A58D-0C171BC04258}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{832925A0-B436-4B8D-A58D-0C171BC04258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51AA5022-7FD2-4DB0-94B4-9B1A64615457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51AA5022-7FD2-4DB0-94B4-9B1A64615457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51AA5022-7FD2-4DB0-94B4-9B1A64615457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51AA5022-7FD2-4DB0-94B4-9B1A64615457}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
