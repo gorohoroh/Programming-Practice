@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./DataList.css"
+import "./../common.css"
 
 export default class DataList extends React.Component {
     render() {
