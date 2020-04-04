@@ -1,6 +1,6 @@
 import * as React from "react";
 import DateSelector from './components/DateSelector/DateSelector';
-import DataTable from './components/DataTable/DataTable';
+import DataList from './components/DataList/DataList';
 export default class Report extends React.Component {
 
     constructor(props) {
@@ -15,7 +15,7 @@ export default class Report extends React.Component {
         return <div style={{"background-color":"red"}}>
             <p>Wassup, I'm your whole report</p>
             <DateSelector/>
-            <DataTable/>
+            <DataList/>
         </div>
     }
 }
