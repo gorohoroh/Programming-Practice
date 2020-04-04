@@ -1,6 +1,6 @@
 import * as React from "react";
-import DateSelector from './components/DateSelector/DateSelector';
-import DataList from './components/DataList/DataList';
+import DateSelector from '../DateSelector/DateSelector';
+import DataList from '../DataList/DataList';
 export default class Report extends React.Component {
 
     constructor(props) {
