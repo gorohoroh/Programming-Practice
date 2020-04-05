@@ -1,16 +1,21 @@
+.report, .date-selector, .data-list-item { padding: 10px; }
+
 .data-list-container {
-    background-color: blue;
     list-style: none;
     display: grid;
-    margin: 16px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #ccd0d4;
+    background-color: rgb(176, 180, 183);
     grid-template-columns: repeat(3, 1fr);
 }
 
-.data-list-item {
-    box-sizing: border-box;
-    margin-bottom: 0;
+.data-list-item { }
+
+.date-selector {
+    background-color: #cbcfd3;
+    max-width: 500px;
 }
 
+.report {
+    margin: 16px;
+    max-width: 1000px;
+    background-color: #e6ebef;
+}
