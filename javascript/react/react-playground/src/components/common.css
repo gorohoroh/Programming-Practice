@@ -11,11 +11,20 @@
 
 .date-selector {
     background-color: #cbcfd3;
-    max-width: 500px;
 }
 
 .report {
     margin: 16px;
     max-width: 1000px;
     background-color: #e6ebef;
+}
+
+.date-selector-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+}
+
+.decade-active {
+    font-weight: bold;
 }
