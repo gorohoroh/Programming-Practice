@@ -1,4 +1,4 @@
-.report, .date-selector, .data-list-item { padding: 10px; }
+.report, .decade-selector, .data-list-item { padding: 10px; }
 
 .data-list-container {
     list-style: none;
@@ -9,7 +9,7 @@
 
 .data-list-item { }
 
-.date-selector {
+.decade-selector {
     background-color: #cbcfd3;
 }
 
@@ -19,7 +19,7 @@
     background-color: #e6ebef;
 }
 
-.date-selector-list {
+.decade-selector-list {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(9, 1fr);

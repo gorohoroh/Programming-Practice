@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export default class DateSelector extends React.Component {
+export default class DecadeSelector extends React.Component {
     render() {
 
         const decades = [
@@ -18,11 +18,11 @@ export default class DateSelector extends React.Component {
             return decade;
         });
 
-        return <div className="date-selector">
+        return <div className="decade-selector">
 
             <p>Wassup, I'm a decade selector. I display a set of decades available for selection, and highlight the selected decade. When someone selects a new decade, I pass that to my parent, <code>Report</code>, to refresh data and re-render myself and <code>DataList</code>.</p>
 
-            <ul className="date-selector-list">
+            <ul className="decade-selector-list">
                 {decades.map(item => item.active ?
                     <li key={item.startYear} className="decade-active">{item.startYear}s</li> :
                     <li key={item.startYear}
