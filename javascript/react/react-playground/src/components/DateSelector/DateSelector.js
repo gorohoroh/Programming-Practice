@@ -23,7 +23,9 @@ export default class DateSelector extends React.Component {
             <ul className="date-selector-list">
                 {decades.map(item => item.active ?
                     <li key={item.startYear} className="decade-active">{item.startYear}s</li> :
-                    <li key={item.startYear}>{item.startYear}s</li>)
+                    <li key={item.startYear}
+                        onClick={e => this.props.updateDecade(e, item.startYear)}
+                    >{item.startYear}s</li>)
                 }
             </ul>
         </div>;
