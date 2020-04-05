@@ -20,7 +20,7 @@ export default class DecadeSelector extends React.Component {
 
         return <div className="decade-selector">
 
-            <p>Wassup, I'm a decade selector. I display a set of decades available for selection, and highlight the selected decade. When someone selects a new decade, I pass that to my parent, <code>Report</code>, to refresh data and re-render myself and <code>DataList</code>.</p>
+            <p>Wassup, I'm a decade selector. I display a set of decades available for selection, and highlight the selected decade. When someone selects a new decade, I pass that to my parent, <code>Report</code>, to refresh data and re-render myself and <code>DataTable</code>.</p>
 
             <ul className="decade-selector-list">
                 {decades.map(item => item.active ?
