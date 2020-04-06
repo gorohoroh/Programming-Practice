@@ -3,8 +3,8 @@ import "./../common.css"
 
 export default class DataTable extends React.Component {
     render() {
-        return !this.props.albums.length ? "No albums in this decade" :
-            <table>
+        return !this.props.albums.length ? <div className="data-table-placeholder">No albums in this decade</div> :
+            <table className="data-table">
                 <thead>
                     <tr>
                         <th onClick={e => this.props.sort(e, "number")}>Ranking</th>

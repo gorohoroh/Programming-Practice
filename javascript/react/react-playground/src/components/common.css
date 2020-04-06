@@ -1,22 +1,33 @@
-.report, .decade-selector, .data-list-item { padding: 10px; }
-
-.data-list-container {
-    list-style: none;
-    display: grid;
-    background-color: rgb(176, 180, 183);
-    grid-template-columns: repeat(3, 1fr);
+.report, .decade-selector, .data-table, .data-table-placeholder {
+    padding: 10px;
 }
 
-.data-list-item { }
+.data-table {
+    margin-top: 15px;
+    background-color: #c0c3c7;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
 
-.decade-selector {
-    background-color: #cbcfd3;
+.data-table th, .data-table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.data-table tbody tr:nth-child(odd) {
+    background-color: #d1d1d1;
 }
 
 .report {
     margin: 16px;
     max-width: 1000px;
     background-color: #e6ebef;
+}
+
+.decade-selector {
+    background-color: #cbcfd3;
 }
 
 .decade-selector-list {
