@@ -9,11 +9,14 @@ export default class Report extends React.Component {
         super(props);
 
         const topAlbumsInDecade = this.getTopAlbumsInDecade(this.props.decade);
+
         this.handleUpdateDecade = this.handleUpdateDecade.bind(this);
+        this.handleSort = this.handleSort.bind(this);
 
         this.state = {
             albums: topAlbumsInDecade,
-            decade: this.props.decade
+            decade: this.props.decade,
+            albumSortColumn: "number"
         };
 
     }
@@ -24,6 +27,24 @@ export default class Report extends React.Component {
             const endYear = startYear + 10;
             return item.year >= startYear && item.year < endYear;
         });
+    }
+
+    handleSort(e, column) {
+        const albums = this.state.albums;
+        let sortColumn = this.state.albumSortColumn;
+
+        if (sortColumn === column) albums.reverse();
+
+        else {
+            sortColumn = column;
+            albums.sort((a, b) => {
+                if (a[column] > b[column]) return 1;
+                if (a[column] < b[column]) return -1;
+                return 0;
+            });
+        }
+
+        this.setState({albums: albums, albumSortColumn: sortColumn});
     }
 
     handleUpdateDecade(e, decade) {
@@ -44,7 +65,7 @@ export default class Report extends React.Component {
 
             <DecadeSelector decade={this.state.decade} updateDecade={this.handleUpdateDecade}/>
 
-            <DataTable albums={this.state.albums}/>
+            <DataTable albums={this.state.albums} sort={this.handleSort}/>
         </div>
     }
 }

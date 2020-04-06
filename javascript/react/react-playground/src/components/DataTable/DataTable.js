@@ -7,10 +7,10 @@ export default class DataTable extends React.Component {
             <table>
                 <thead>
                     <tr>
-                        <th>Ranking</th>
-                        <th>Artist</th>
-                        <th>Name</th>
-                        <th>Year</th>
+                        <th onClick={e => this.props.sort(e, "number")}>Ranking</th>
+                        <th onClick={e => this.props.sort(e, "artist")}>Artist</th>
+                        <th onClick={e => this.props.sort(e, "name")}>Name</th>
+                        <th onClick={e => this.props.sort(e, "year")}>Year</th>
                     </tr>
                 </thead>
                 <tbody>{
