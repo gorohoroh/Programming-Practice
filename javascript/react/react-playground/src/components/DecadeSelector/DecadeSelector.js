@@ -25,9 +25,11 @@ export default class DecadeSelector extends React.Component {
             <ul className="decade-selector-list">
                 {decades.map(item => item.active ?
                     <li key={item.startYear} className="decade-active">{item.startYear}s</li> :
-                    <li key={item.startYear}
-                        onClick={e => this.props.updateDecade(e, item.startYear)}
-                    >{item.startYear}s</li>)
+                    <li key={item.startYear}>
+                        <button type="button" className="link-button"
+                                onClick={e => this.props.updateDecade(e, item.startYear)}>{item.startYear}s
+                        </button>
+                    </li>)
                 }
             </ul>
         </div>;
