@@ -1,0 +1,68 @@
+body {
+    font-family: "DejaVu Sans", sans-serif;
+}
+
+@media (max-width: 580px) {
+    .video_section {
+        display: none;
+    }
+}
+
+.albums_section_body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.albums_section_body div {
+    max-width: 350px;
+    padding-right: 40px;
+    padding-left: 7px;
+}
+
+.albums_section_body div img {
+    max-width: 250px;
+}
+
+.albums_section_body div p {
+    line-height: 1.5em;
+    font-family: "Segoe UI", sans-serif;
+}
+
+h2 {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    height: 100px;
+    background-color: white;
+    width: 100%;
+}
+
+main {
+    margin-top: 100px;
+}
+
+#header-img {
+    height: 100px;
+    position: relative;
+    left: -50px;
+}
+
+#nav-bar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#nav-bar ul {
+    list-style: none;
+}
+
+#nav-bar ul li {
+    padding-right: 10px;
+}

@@ -1,0 +1,65 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<h1 id="title">Title</h1>
+
+<p id="description">Description.</p>
+
+<form id="survey-form">
+
+    <div class="form-item-container">
+        <label for="name" id="name-label">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+    </div>
+
+    <div class="form-item-container">
+        <label for="email" id="email-label">E-mail:</label>
+        <input type="email" id="email" placeholder="Enter your e-mail" required>
+    </div>
+
+    <div class="form-item-container">
+        <label for="number" id="number-label">Enter any number from 5 to 60:</label>
+        <input type="number" id="number" placeholder="Enter an integer" min="5" max="60" required>
+    </div>
+
+    <div class="form-item-container">
+        <label for="dropdown">Select an option:</label>
+        <select id="dropdown">
+            <option value="one" selected>One</option>
+            <option value="two">Two</option>
+            <option value="three">Three</option>
+        </select>
+    </div>
+
+    <div class="form-item-container">
+        <p>Yes or no?</p>
+        <label>
+            <input type="radio" name="yes-or-no" value="yes">
+            Yes
+        </label>
+        <label>
+            <input type="radio" name="yes-or-no" value="no">
+            No
+        </label>
+    </div>
+
+    <div class="form-item-container">
+        <p>Does any of the below describe your attitude towards HTML forms?</p>
+        <label>
+            <input type="checkbox" value="awful">Awful
+        </label>
+        <label>
+            <input type="checkbox" value="not-intuitive">Not intuitive
+        </label>
+        <label>
+            <input type="checkbox" value="boilerplate">Boilerplate heavy
+        </label>
+    </div>
+
+    <div class="form-item-container">
+        <p>Anything else?</p>
+        <textarea placeholder="Enter any other comments you may have"></textarea>
+    </div>
+
+    <button id="submit" type="submit">Submit</button>
+
+</form>
