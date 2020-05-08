@@ -1,0 +1,212 @@
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</head>
+
+<!--Content borrowed from https://docs.microsoft.com/en-us/learn/modules/create-razor-pages-aspnet-core/6-create-pagemodel-->
+
+<body>
+    <nav id="navbar">
+
+        <header>Modify the page model</header>
+
+        <a href="#Examine_the_structure_of_a_basic_Razor_Pages_PageModel_class_file" class="nav-link">Examine the
+            structure of a basic Razor Pages PageModel class file</a>
+        <a href="#Adding_an_OnPost_handler_method_to_the_Create_PageModel_class" class="nav-link">Adding an OnPost
+            handler method to the Create PageModel class</a>
+        <a href="#Binding_the_Product_model" class="nav-link">Binding the Product model</a>
+        <a href="#Built-in_server-side_model_validation_using_ASP.NET_Core_data_annotations" class="nav-link">Built-in
+            server-side model validation using ASP.NET Core data annotations</a>
+        <a href="#Defining_validation_rules_for_the_product_model_using_data_annotations" class="nav-link">Defining
+            validation rules for the product model using data annotations</a>
+
+    </nav>
+
+    <main id="main-doc">
+
+        <h1>Modify the page model</h1>
+
+        <section class="main-section" id="Examine_the_structure_of_a_basic_Razor_Pages_PageModel_class_file">
+            <header>Examine the structure of a basic Razor Pages PageModel class file</header>
+            <p>Open the <em>Create.cshtml.cs PageModel</em> class file located in the
+                <em>ContosoPets.Ui/Pages/Products/</em> directory. You may remember, that when you created a new Razor
+                Page
+                called <em>Create</em>, its <em>PageModel</em> class file named <em>Create.cshtml.cs</em> was generated.
+                Examine the contents. It should contain the following C# code:
+            </p>
+
+            <pre>
+            <code>
+    namespace Contoso.UI.Pages.Products
+    {
+        public class CreateModel : PageModel
+        {
+            public void OnGet()
+            {
+
+            }
+        }
+    }
+            </code>
+        </pre>
+
+            <p>A Razor Page's <em>PageModel</em> class file defines any page handlers for requests sent to the page, and
+                data used to render the page. The
+                <em>PageModel</em> keeps those concerns separate from the Razor Page, your application more modular, and
+                much easier to maintain. By convention, the
+                <em>PageModel</em> class is named <em>Model</em> and is in the same namespace as the Razor Page. In this
+                case, the <code>CreateModel</code> class in the namespace of <code>ContosoPets.Ui.Pages.Products</code>.
+            </p>
+
+            <p>Currently, the <code>CreateModel</code> class handles the HTTP GET request and does nothing with it.</p>
+
+            <p>You can add handler methods for any HTTP verb. The most common handlers are:</p>
+
+            <ul>
+                <li><code>OnGet</code> to initialize state needed for the page.</li>
+                <li><code>OnPost</code> to handle form submissions.</li>
+            </ul>
+
+        </section>
+
+        <section class="main-section" id="Adding_an_OnPost_handler_method_to_the_Create_PageModel_class">
+            <header>Adding an OnPost handler method to the Create PageModel class</header>
+
+            <p>Replace the code in the <em>Create.cshtml.cs PageModel</em> class file located in the <em>ContosoPets.Ui/Pages/Products/</em>
+                directory with the following, and save your changes:</p>
+
+            <pre>
+            <code>
+    using ContosoPets.Ui.Models;
+    using ContosoPets.Ui.Services;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.RazorPages;
+    using System.Threading.Tasks;
+
+    namespace ContosoPets.Ui.Pages.Products
+    {
+        public class CreateModel : PageModel
+        {
+            private readonly ProductService _productService;
+
+            [BindProperty]
+            public Product Product { get; set; }
+
+            public CreateModel(ProductService productService)
+            {
+                _productService = productService;
+            }
+
+            public async Task&lt;IActionResult&gt; OnPostAsync()
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Page();
+                }
+
+                await _productService.CreateProduct(Product);
+
+                return RedirectToPage("Index");
+            }
+        }
+    }
+            </code>
+        </pre>
+
+            <p>The <em>CreateModel</em> class now has an <em>OnPostAsync</em> handler method. <em>OnPostAsync</em> runs
+                on
+                <em>POST</em> requests (when the user posts the <em>Create</em> form). The <em>Async</em> naming suffix
+                is
+                optional but is often used by convention for asynchronous functions.</p>
+
+            <p>The <em>OnPost</em> handler will need to do the following tasks for this application:</p>
+
+            <ul>
+                <li>Verify the user-submitted data posted to the <em>PageModel</em> is valid.</li>
+                <li>If the attempted <em>PageModel</em> changes are not valid, the <em>Create</em> page is presented
+                    again
+                    to the user. A message is displayed clarifying the input requirements.
+                </li>
+                <li>If the <em>PageModel</em> update is valid, then data changes are passed to a service called <em>ProductService</em>.
+                    <em>ProductService</em> will handle the concern of HTTP requests and responses to the web API.
+                </li>
+            </ul>
+
+        </section>
+
+        <section class="main-section" id="Binding_the_Product_model">
+            <header>Binding the Product model</header>
+
+            <p>The <code>CreateModel</code> class needs access to the <code>Product</code> model. It will validate and
+                pass
+                <code>Product</code> entries from the <em>Create</em> form. It does so by using the
+                <em>[BindProperty]</em>
+                attribute in the following code:</p>
+
+            <pre>
+            <code>
+    [BindProperty]
+    public Product Product { get; set; }
+            </code>
+        </pre>
+
+            <p>Binding to properties can reduce the amount of code you have to write. Binding reduces code by using the
+                same
+                property to render fields such as in <code>&lt;input asp-for="Product.Name"&gt;</code>.</p>
+
+        </section>
+
+        <section class="main-section" id="Built-in_server-side_model_validation_using_ASP.NET_Core_data_annotations">
+            <header>Built-in server-side model validation using ASP.NET Core data annotations</header>
+
+            <p>Model binding and validation functionality are built-in when you create a ASP.NET Core web application.
+                Both
+                automatically occur before the execution of a Razor Page's handler method. So the <em>OnPostAsync</em>
+                handler method only needs to verify the outcome of that validation.</p>
+
+            <pre>
+            <code>
+    if (!ModelState.IsValid)
+    {
+        return Page();
+    }
+            </code>
+        </pre>
+
+            <p>In the preceding code, <em>ModelState</em> represents errors from model binding and validation. If the
+                <em>ModelState</em>
+                isn't valid, then the <em>Create</em> page is presented again to the user. In the previous unit, you saw
+                how
+                the <em>Create</em> Razor Page takes advantage of ASP.NET Core's built-in client-side form input
+                validation
+                to responsively provide the user with input validation feedback.</p>
+
+            <p>If the <em>ModelState</em> is valid, then the <em>OnPostAsync</em> handler will proceed to call upon an
+                instance of <em>ProductService</em>. <em>ProductService</em> is responsible for HTTP requests and
+                responses
+                for the web API.</p>
+
+            <pre>
+            <code>
+    await _productService.CreateProduct(Product);
+
+    return RedirectToPage("Index");
+            </code>
+        </pre>
+
+        </section>
+
+        <section class="main-section" id="Defining_validation_rules_for_the_product_model_using_data_annotations">
+            <header>Defining validation rules for the product model using data annotations</header>
+
+            <p>This project uses a central model file <em>Product.cs</em> for <code>Product</code> model validation and
+                operations. It's used by all Razor Page <em>PageModels</em> involved in UI for Product CRUD operations,
+                and
+                is used to validate product data received from the web api. By convention it's stored in the
+                <em>Models/</em> directory. The <code>Product</code> model class namespace is
+                <code>ContosoPets.Ui.Models</code>.</p>
+
+        </section>
+
+    </main>
+</body>

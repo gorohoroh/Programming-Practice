@@ -1,0 +1,90 @@
+@media (min-width: 1000px) {
+    #navbar {
+        position: fixed;
+        left: 0;
+        width: 20vw;
+        padding-left: 1vmax;
+        padding-top: 1.5vmax;
+    }
+
+    #main-doc {
+        width: 50vw;
+        margin-left: 20vmax;
+        padding-left: 4vmax;
+    }
+
+    #navbar header {
+        font-family: "Segoe UI Black", sans-serif;
+        font-size: 1vmax;
+    }
+
+    #navbar a {
+        font-size: 1vmax;
+    }
+
+    .main-section p, ul {
+        font-size: 1vmax;
+        line-height: 1.5vmax;
+    }
+}
+
+@media (max-width: 1000px) {
+    #navbar {
+        position: fixed;
+        overflow: hidden;
+        top: 0;
+        width: 100vw;
+        max-height: 10vh;
+        background-color: white;
+        padding-bottom: 1vh;
+        line-height: 1.2em;
+        white-space: nowrap;
+    }
+
+    #main-doc {
+        width: 95vw;
+        margin-top: 12vh;
+    }
+
+    #navbar header {
+        display: none;
+    }
+
+    #navbar a {
+        font-size: 1.5vmax;
+    }
+
+    .main-section p, ul {
+        font-size: 2vmax;
+        line-height: 2.5vmax;
+    }
+
+    pre {
+        font-size: 1.8vmax;
+    }
+}
+
+#navbar a {
+    padding-top: 1vmax;
+    display: block;
+    text-decoration: none;
+    font-family: "Segoe UI", sans-serif;
+}
+
+h1 {
+    font-size: 3vmax;
+}
+
+.main-section header {
+    font-size: 2vmax;
+    padding-top: 1vmax;
+    padding-bottom: 0.5vmax;
+}
+
+.main-section header, h1 {
+    font-family: "Segoe UI Black", sans-serif;
+}
+
+.main-section pre {
+    background-color: #eeeeee;
+}
