@@ -1,0 +1,41 @@
+#welcome-section {
+    height: 100vh;
+    margin-top: 4em;
+}
+
+#navbar {
+    position: fixed;
+    top: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    height: 2em;
+    background-color: beige;
+    width: 100%;
+    margin-left: -8px; /*Overriding Chrome default*/
+}
+
+#navbar a {
+    margin-left: 8px; /*Compensating for overridden Chrome default*/
+}
+
+.project-tile {
+    padding-top: 0.2em;
+    padding-bottom: 0.5em;
+}
+
+.space {
+    width: 30px;
+    font-size: 26px;
+    opacity: 20%;
+}
+
+@media print {
+    #welcome-section {
+        height: auto;
+    }
+
+    #navbar, .space {
+        display: none;
+    }
+}
+
