@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codility.Tests", "Codility.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeetCode.Tests", "LeetCode.Tests\LeetCode.Tests.csproj", "{51AA5022-7FD2-4DB0-94B4-9B1A64615457}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns", "DesignPatterns\DesignPatterns.csproj", "{C51E4CD4-7DB3-4F1E-8BE3-3159DBC84215}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,5 +78,9 @@ Global
 		{51AA5022-7FD2-4DB0-94B4-9B1A64615457}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51AA5022-7FD2-4DB0-94B4-9B1A64615457}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51AA5022-7FD2-4DB0-94B4-9B1A64615457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C51E4CD4-7DB3-4F1E-8BE3-3159DBC84215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C51E4CD4-7DB3-4F1E-8BE3-3159DBC84215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C51E4CD4-7DB3-4F1E-8BE3-3159DBC84215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C51E4CD4-7DB3-4F1E-8BE3-3159DBC84215}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
