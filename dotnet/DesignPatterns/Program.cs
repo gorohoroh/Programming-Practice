@@ -51,7 +51,7 @@ namespace DesignPatterns
 
         private static void UseBuilder()
         {
-            var pizza = new PizzaBuilder(28)
+            Pizza pizza = new PizzaBuilder(28)
                 .AddMozzarella()
                 .AddSalami()
                 .AddRuccola()
