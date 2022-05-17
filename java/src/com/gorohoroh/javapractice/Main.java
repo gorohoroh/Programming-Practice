@@ -1,6 +1,8 @@
 package com.gorohoroh.javapractice;
 
 import java.text.MessageFormat;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,7 +10,31 @@ public class Main {
 
     public static void main(String[] args) {
 //        primitiveNumericTypeLimitations();
-        stringFormatting();
+//        stringFormatting();
+        basicTimeTypes();
+    }
+
+    private static void basicTimeTypes() {
+
+        Instant instant = Instant.now();
+        LocalDate localDate = LocalDate.now();
+        LocalTime localTime = LocalTime.now();
+        LocalDateTime localDateTime = LocalDateTime.now();
+        ZonedDateTime zonedDateTime = ZonedDateTime.now();
+
+        DateTimeFormatter usFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+        String usDateString = "07-04-2022";
+//        LocalDate failedParse = LocalDate.parse(usDateString); // This would cause a DateTimeParseException
+        LocalDate correctlyParsedDate = LocalDate.parse(usDateString, usFormatter);
+
+        System.out.printf("What's the current UTC date and time? %s%n", instant);
+        System.out.printf("What's the local date today? %s%n", localDate);
+        System.out.printf("What's the local time right now? %s%n", localTime);
+        System.out.printf("What's the local date and time right now? %s%n", localDateTime);
+        System.out.printf("Today is %s %s, %s and the local time is %s:%s in %s.%n", zonedDateTime.getMonth(), zonedDateTime.getDayOfMonth(), zonedDateTime.getYear(), zonedDateTime.getHour(), zonedDateTime.getMinute(), zonedDateTime.getZone());
+        System.out.printf("Americans would expect to read today's date as follows: %s.%n", localDate.format(usFormatter));
+        System.out.printf("Here's a date parsed from a string using a US-style date formatter: %s.%n", correctlyParsedDate);
+
     }
 
     private static void stringFormatting() {
