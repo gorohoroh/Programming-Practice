@@ -1,6 +1,7 @@
 package com.gorohoroh.javapractice;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,7 +10,21 @@ import java.nio.file.Paths;
 public class WorkingWithFiles {
 
     public static void javaNio() {
-        readTextFile();
+//        readTextFile();
+        writeToTextFile();
+    }
+
+    private static void writeToTextFile() {
+        Path path = Paths.get("files/writeHere.txt");
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            if(!Files.exists(path)) Files.createFile(path);
+            writer.write("The first line to write");
+            writer.write(System.lineSeparator());
+            writer.write("The second line to write");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void readTextFile() {
