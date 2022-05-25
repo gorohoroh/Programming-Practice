@@ -13,10 +13,9 @@ public class WorkingWithFiles {
     }
 
     public static void readTextFile() {
-        Path path = Paths.get("src/com/gorohoroh/javapractice/lyrics.txt");
-        try {
+        Path path = Paths.get("files/lyrics.txt");
+        try (BufferedReader reader = Files.newBufferedReader(path)) {
             if (!Files.exists(path)) Files.createFile(path);
-            BufferedReader reader = Files.newBufferedReader(path);
             String line;
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
