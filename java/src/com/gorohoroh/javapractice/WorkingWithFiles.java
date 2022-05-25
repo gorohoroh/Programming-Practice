@@ -6,12 +6,43 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.function.Function;
 
 public class WorkingWithFiles {
 
     public static void javaNio() {
 //        readTextFile();
-        writeToTextFile();
+//        writeToTextFile();
+        readFromCsvFile();
+    }
+
+    private static void readFromCsvFile() {
+        Path path = Path.of("files/data.csv");
+        Function<String, Person> lineToPerson = line -> lineToPerson(line);
+
+        try (BufferedReader reader = Files.newBufferedReader(path)) {
+            String line = reader.readLine();
+            while (line != null) {
+                if (!line.startsWith("#")) {
+                    Person person = lineToPerson.apply(line);
+                    System.out.println("Person: " + person);
+                }
+                line = reader.readLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static Person lineToPerson(String line) {
+        String[] elements = line.split(";");
+
+        String name = elements[0];
+        int age = Integer.parseInt(elements[1]);
+        String city = elements[2];
+
+        return new Person(name, age, city);
+
     }
 
     private static void writeToTextFile() {
