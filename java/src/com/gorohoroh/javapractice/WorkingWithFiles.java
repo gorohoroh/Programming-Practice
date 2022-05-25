@@ -7,16 +7,18 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class WorkingWithFiles {
 
     public static void javaNio() {
 //        readTextFile();
 //        writeToTextFile();
-        readFromCsvFile();
+//        readFromCsvFileDeclaratively();
+        readFromCsvFileUsingStream();
     }
 
-    private static void readFromCsvFile() {
+    private static void readFromCsvFileDeclaratively() {
         Path path = Path.of("files/data.csv");
         Function<String, Person> lineToPerson = line -> lineToPerson(line);
 
@@ -29,6 +31,20 @@ public class WorkingWithFiles {
                 }
                 line = reader.readLine();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void readFromCsvFileUsingStream() {
+        Path path = Path.of("files/data.csv");
+        Function<String, Person> lineToPerson = line -> lineToPerson(line);
+
+        try (Stream<String> lines = Files.lines(path)) {
+            lines
+                .filter(line -> !line.startsWith("#"))
+                .map(lineToPerson)
+                .forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();
         }
